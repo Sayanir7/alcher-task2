@@ -1,0 +1,22 @@
+{% extends "main_template.html" %}
+
+{% load static %}
+
+{% block title %}Edit {{ user.name }}{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/styles_edit.css' %}">{% endblock css %}
+
+{% block popup %}
+<h2>Edit <u>{{user.name}}</u> details </h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    
+    <div class="buttonss">
+        <button type="reset" style=" background-color: rgb(21, 21, 218);;">Cancel</button>
+        <button type="submit">Confirm</button>
+    </div>
+
+</form>
+{% endblock popup %}

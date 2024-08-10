@@ -1,0 +1,187 @@
+{%load static%}
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit {{ user.name }}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Edit {{ user.name }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <button type="submit" class="btn btn-primary">Save changes</button>
+    </form>
+</body>
+</html> {% endcomment %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit {{ user.name }}</title>
+    <link rel="stylesheet" href="{% static 'css/styles_edit.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="home">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </div>
+            <div class="user-profile">
+                <div class="dp">
+
+                </div>
+                ismail ihsan Bulbul
+            </div>
+
+        </nav>
+    </header>
+
+
+
+    <!-- <header>
+                <h1>Welcome, Username</h1>
+            </header> -->
+    <section class="main-content">
+        <div class="sidebar">
+
+            <nav>
+                <div class="new-item">
+                    <button class="add-item"><i class="fa-solid fa-plus"></i><span>New item</span></button>
+                </div>
+                <ul class="nav-menu">
+                    <li class="dropdown">
+                        <a href="#dashboard">
+                            <div id="left"><i class="fa-brands fa-slack"></i>
+                                <p>Dashboard</p>
+                            </div><i class="fa-solid fa-circle-chevron-down" id="drop-icon"></i>
+                        </a>
+                        <ul class="dropdown-content">
+                            <li><a href="#app1">Commerce</a></li>
+                            <li><a href="#app2">Analytics</a></li>
+                            <li><a href="#app1">Crypto</a></li>
+                            <li><a href="#app2">Helpdesk</a></li>
+                            <li><a href="#app1">Monitoring</a></li>
+                            <li><a href="#app2">Fitness</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">
+                            <div id="left"><i class="fa-brands fa-slack"></i>
+                                <p>Application</p>
+                            </div><i class="fa-solid fa-circle-chevron-down" id="drop-icon"></i>
+                        </a>
+                        <ul class="dropdown-content">
+                            <li><a href="#app1">About 1</a></li>
+                            <li><a href="#app2">About 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#dashboard">
+                            <div id="left"><i class="fa-brands fa-slack"></i>
+                                <p>Elements</p>
+                            </div><i class="fa-solid fa-circle-chevron-down" id="drop-icon"></i>
+                        </a>
+                        <ul class="dropdown-content">
+                            <li><a href="#el1">About 3</a></li>
+                            <li><a href="#el2">About 4</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="content">
+
+
+            <div class="welcome">
+                <button class="sidebar-control-btn">&#9776;</button>
+                <!-- <button class="sidebar-control-btn2">&#9776;</button> -->
+                <h3>Welcome</h3>
+                <div class="username">
+                    <div class="pic"></div>
+                    Username
+                </div>
+            </div>
+
+
+            <div class="table-container">
+                <h2>Form Title</h2>
+                <p>Sed tortor, sed velit ridiculus ipsum pharetra lacus odio gravida augue enim.</p>
+                <div class="alert"><i class="fa-solid fa-circle-exclamation fa-rotate-180"></i>
+                    <p> Senectus malesuada suspendisse bibendum elit amet vitae.</p>
+                </div>
+                <div class="the-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Full Name</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Options</th>
+
+                            </tr>
+                        </thead>
+                       
+                    </table>
+                </div>
+                
+
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+    <div class="pop-container">
+
+        <div class="popup">
+
+            <h2>Edit <u>{{user.name}}</u> details </h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                
+                <div class="buttonss">
+                    <button type="reset" style=" background-color: rgb(21, 21, 218);;">Cancel</button>
+                    <button type="submit">Confirm</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <!-- <script src="script.js"></script> -->
+   
+
+</body>
+
+</html>

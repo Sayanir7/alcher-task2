@@ -1,0 +1,79 @@
+{% extends "main_template.html" %}
+{%load static%}
+
+
+{% block title %}Dashboard{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">{% endblock css %}
+
+{% block table_row %}
+<tbody id="table-body">
+
+
+
+
+
+    {% for user in users %}
+    <tr class="user">
+        <td>{{user.name}}</td>
+        <td>{{user.username}} </td>
+        <td>{{user.email}} </td>
+        <td class="options">
+            <a href="{% url 'edit_user' user.id %}" class="edit-btn">
+                <i class="fa-regular fa-floppy-disk"></i> Edit
+            </a>
+
+            <form class="delete-form" action="{% url 'delete_user' user.id %}" method="POST">
+                {% csrf_token%}
+                <button class="delete-btn" type="submit"><i class="fa-regular fa-floppy-disk"></i> Delete</button>
+            </form>
+
+        </td>
+
+
+    </tr>
+    {%empty %}
+    <tr class="user">
+        <td>No item</td>
+        <td>No item</td>
+        <td>No item</td>
+        <td class="options">
+            No item
+        </td>
+
+
+    </tr>
+    {%endfor%}
+
+
+</tbody>
+{% endblock table_row %}
+
+
+{% block add_item_button %}<button class="add-item" id="add-item"><i class="fa-solid fa-plus"></i>add user</button>
+{%endblock add_item_button %}
+
+
+{% block popup %}
+<h2>Add Member</h2>
+<form action="/users" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% comment %} <label for="title"><b>Full Name:</b></label>
+    <input type="text" id="title" name="name" placeholder="What is your name?" required>
+    <label for="username"><b>Username:</b></label>
+    <input type="text" name="username" placeholder="Username" required>
+    <label for="email"><b>Email:</b></label>
+    <input type="text" name="email" placeholder="Enter your Email" required> {% endcomment %}
+    <div class="buttonss">
+        <button type="reset" style=" background-color: rgb(21, 21, 218);;">Cancel</button>
+        <button type="submit">Confirm</button>
+    </div>
+
+</form>
+{% endblock popup %}
+
+
+{% block script %}
+<script src="{% static 'js/script.js' %}"></script>{% endblock script %}
